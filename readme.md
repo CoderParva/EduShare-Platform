@@ -1,181 +1,182 @@
-#  Quick File Share
+# EduShare - Academic Collaboration Platform
 
-A web-based file sharing application that allows users to share files instantly using unique codes without requiring any login or signup.
-
-![React](https://img.shields.io/badge/React-18.2.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-Express-green) ![Status](https://img.shields.io/badge/Status-Active-success)
-
-##  Overview
-
-A full-stack web application for secure, temporary file sharing. Users can upload files and receive a unique 6-character code to share, which others can use to download the file within 24 hours.
-
-##  Features
-
-- **No Authentication Required** - Instant file sharing without signup/login
-- **Unique Code Generation** - Cryptographically secure 6-character codes
-- **Automatic Expiry** - Files automatically delete after 24 hours
-- **File Size Validation** - Support for files up to 100MB
-- **Responsive Design** - Works seamlessly on mobile and desktop
-- **Real-time File Information** - View file details before downloading
-- **Error Handling** - Comprehensive validation and user feedback
-
-##  Tech Stack
-
-### Frontend
-- **React.js** - UI framework
-- **CSS3** - Modern styling with gradients and animations
-- **Fetch API** - HTTP requests
-
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **Multer** - File upload middleware
-- **CORS** - Cross-origin resource sharing
-
-## 📁 Project Structure
-```
-file-sharing-app/
-├── backend/
-│   ├── server.js          # Express server & API endpoints
-│   ├── package.json       # Backend dependencies
-│   └── uploads/           # Temporary file storage
-│
-├── frontend/
-│   ├── public/
-│   │   └── index.html     # HTML template
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Upload.js      # Upload component
-│   │   │   ├── Upload.css
-│   │   │   ├── Download.js    # Download component
-│   │   │   └── Download.css
-│   │   ├── App.js         # Main app component
-│   │   ├── App.css
-│   │   ├── index.js       # React entry point
-│   │   └── index.css
-│   └── package.json       # Frontend dependencies
-│
-├── .gitignore
-└── README.md
-```
-
-##  Getting Started
-
-### Prerequisites
-- Node.js (v14 or higher)
-- npm (comes with Node.js)
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/CoderParva/file-sharing-app.git
-cd file-sharing-app
-```
-
-2. **Install Backend Dependencies**
-```bash
-cd backend
-npm install
-```
-
-3. **Install Frontend Dependencies**
-```bash
-cd ../frontend
-npm install
-```
-
-### Running the Application
-
-1. **Start the Backend Server**
-```bash
-cd backend
-npm start
-```
-Server will run on `http://localhost:5000`
-
-2. **Start the Frontend (in a new terminal)**
-```bash
-cd frontend
-npm start
-```
-Frontend will open automatically at `http://localhost:3000`
-
-##  How to Use
-
-### Upload a File
-1. Go to http://localhost:3000
-2. Click on **"Upload File"** tab
-3. Select a file (max 100MB)
-4. Click **"Upload File"** button
-5. Copy the generated 6-character code
-6. Share the code with anyone
-
-### Download a File
-1. Click on **"Download File"** tab
-2. Enter the 6-character code
-3. Click **"Check"** to view file information
-4. Click **"Download File"** to download
-
-## API Endpoints
-
-### POST `/api/upload`
-Upload a file and get a unique code
-- **Body**: multipart/form-data with 'file' field
-- **Response**: `{ success, code, filename, size, expiryTime }`
-
-### GET `/api/fileinfo/:code`
-Get information about a file
-- **Response**: `{ filename, size, uploadTime, expiryTime }`
-
-### GET `/api/download/:code`
-Download a file using its code
-- **Response**: File download stream
-
-### GET `/api/health`
-Check server status
-- **Response**: `{ status, activeFiles, timestamp }`
-
-##  Key Features
-
-### Secure Code Generation
-- Uses Node.js `crypto.randomBytes()` for cryptographic security
-- 6-character hexadecimal codes (16^6 = 16.7M possible combinations)
-
-### Auto-Deletion Mechanism
-- Implemented using JavaScript `setTimeout()`
-- Files automatically deleted after 24 hours
-- Both file and metadata are removed
-
-### Multi-Layer Validation
-- Client-side: Checks file size before upload
-- Server-side: Multer middleware validates files
-- Maximum file size: 100MB
-
-##  Security Features
-
-- CORS Protection for secure cross-origin requests
-- File size limits to prevent server overload
-- Temporary storage with automatic cleanup
-- Cryptographically secure random code generation
-- Input validation at multiple layers
-
-##  Roadmap
-
-- [ ] MongoDB integration for persistent metadata
-- [ ] AWS S3 for cloud file storage
-- [ ] File encryption
-- [ ] Progress bars for upload/download
-- [ ] Multiple file upload support
-- [ ] QR code generation for sharing
-
-##  License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-##  Contact
-
-**GitHub**: [@CoderParva](https://github.com/CoderParva)
+A complete educational platform for students and teachers with file sharing, assignments, quizzes, discussion forum, and plagiarism detection.
 
 ---
 
-**⭐ Star this repo if you find it useful!**
+## Overview
+
+**EduShare** is a web-based platform that brings all essential educational tools into one place. Instead of using multiple websites for assignments, quizzes, and discussions, everything is available here.
+
+### What It Does
+- Secure Login - Students and teachers have separate accounts
+- File Sharing - Upload files and share with a simple code
+- Assignments - Teachers create, students submit, teachers grade
+- Quizzes - Auto-graded quizzes with instant results
+- Discussion Forum - Ask questions and help each other
+- Plagiarism Checker - Check if work is original
+
+---
+
+## Technology Used
+
+**Frontend:**
+- React.js - For the user interface
+- CSS - For styling
+- JavaScript - For functionality
+
+**Backend:**
+- Node.js - Server runtime
+- Express.js - Web framework
+- Bcrypt - Password encryption
+- Multer - File uploads
+
+---
+
+## How to Run
+
+### Step 1: Install Dependencies
+
+**Backend:**
+```bash
+cd backend
+npm install
+npm start
+```
+
+**Frontend (in new terminal):**
+```bash
+cd frontend
+npm install
+npm start
+```
+
+### Step 2: Access Application
+Open browser and go to: `http://localhost:3000`
+
+---
+
+## Project Structure
+```
+EduShare-Platform/
+├── backend/
+│   ├── server.js           # Main server file
+│   ├── uploads/            # Uploaded files
+│   ├── assignments/        # Assignment submissions
+│   └── package.json
+│
+└── frontend/
+    ├── src/
+    │   ├── components/     # React components
+    │   ├── App.js          # Main app
+    │   └── App.css
+    └── package.json
+```
+
+---
+
+## Project Information
+
+**Guide:** Dr. Manish Kumar Thakur  
+**Institution:** Vellore Institute of Technology, Bhopal  
+**Course:** DSN4092 - Capstone Project  
+**Phase:** 2
+
+---
+
+## Features
+
+### For Students:
+- Register and login securely
+- Submit assignments before deadline
+- Take quizzes and get instant results
+- Participate in subject-wise discussions
+- Check documents for plagiarism
+- Share files using unique codes
+
+### For Teachers:
+- Create assignments with deadlines
+- Grade student submissions with feedback
+- Create auto-graded quizzes
+- Monitor discussion forums
+- Track student performance
+
+---
+
+## Future Plans
+
+- Add database (MongoDB) for permanent storage
+- Deploy online (AWS/Heroku)
+- Email notifications for deadlines
+- Mobile app
+- Video lectures
+- Live classes
+
+---
+
+## How It Works
+
+1. User registers with email and password (encrypted)
+2. Login gives access to all modules
+3. Students can submit work, take quizzes, ask questions
+4. Teachers can create assignments, grade work, create quizzes
+5. Everyone can share files and check plagiarism
+
+---
+
+## Main Modules
+
+### 1. Authentication
+- Secure registration and login
+- Password hashing with bcrypt
+- Session management
+
+### 2. File Sharing
+- Upload files (up to 100MB)
+- Get unique 6-character code
+- Files auto-delete after 24 hours
+
+### 3. Assignments
+- Teachers create assignments
+- Students submit work
+- Teachers grade with feedback
+- Late submission tracking
+
+### 4. Quizzes
+- Multiple choice and true/false questions
+- Timed quizzes with countdown
+- Auto-grading with instant results
+- Score history
+
+### 5. Discussion Forum
+- Subject-based categories
+- Create threads and reply
+- Upvote helpful answers
+- View popular discussions
+
+### 6. Plagiarism Checker
+- Upload documents
+- Text similarity analysis
+- Percentage score
+- Match details
+
+---
+
+## Quick Start
+
+1. Clone repository
+2. Install backend dependencies: `cd backend && npm install`
+3. Install frontend dependencies: `cd frontend && npm install`
+4. Start backend: `cd backend && npm start`
+5. Start frontend: `cd frontend && npm start`
+6. Open `http://localhost:3000` in browser
+
+---
+
+## License
+
+MIT License - Free to use and modify
+
+---
+
+**VIT Bhopal - January 2026**
