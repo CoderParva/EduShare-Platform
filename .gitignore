@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+*/node_modules/
+package-lock.json
+
+# Uploads folder (temporary files)
+backend/uploads/
+
+# Environment variables
+.env
+
+# Build files
+frontend/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.cache/
+temp/
+tmp/
